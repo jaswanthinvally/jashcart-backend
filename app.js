@@ -5,6 +5,8 @@ dotenv.config();
 const products = require('./routes/Products');
 const orders = require('./routes/Oders');
 const ConnectDatabase = require('./ConnectDatabase')
+app.use(express.json());  // For parsing application/json
+app.use(express.urlencoded({ extended: true })); 
 
 app.use('/api/v1', products); // Corrected path
 app.use('/api/v1', orders); // Corrected path

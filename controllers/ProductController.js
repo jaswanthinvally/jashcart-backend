@@ -35,3 +35,23 @@ exports.getsingleproduct = async (req, res, next) => {
         });
     }
 };
+
+exports.createproduct = (req,res,next) => {
+    const {name,price,discription,rating,images,catagory,seller,stock,noofreview,createdAt} = req.body
+    Productmodel.create({
+        name,
+        price,
+        discription,
+        rating,
+        images,
+        catagory,
+        seller,
+        stock,
+        noofreview,
+        createdAt
+    }).then(() => res.json({
+         message : "product created sucessfully",
+         status : sucess
+
+    })  ).catch(() => res.json({message : "product created failed"}))
+}
